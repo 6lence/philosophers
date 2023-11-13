@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 11:32:48 by mescobar          #+#    #+#             */
-/*   Updated: 2023/11/12 23:23:53 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/11/13 02:29:39 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,30 @@ int	ft_wrong_arguments(void)
 
 void	ft_initiate(t_data *l)
 {
+	struct timeval	now;
+	size_t			i;
+
+	gettimeofday(&now, NULL);
+	l->time = (now.tv_sec * 1000) + (now.tv_usec * 1000) + 1000;
 	l->pid = malloc(sizeof(pthread_t) * l->nb_philo);
+	l->mutex = malloc(sizeof(pthread_mutex_t) * l->nb_philo + 1);
+	pthread_mutex_init(&l->lock, NULL);
+	i = 0;
+	while (i < l->nb_philo)
+		pthread_mutex_init(&l->mutex[i++], NULL);
+	l->not_dead = 1;
+}
+
+void	ft_end(t_data *l)
+{
+	size_t	i;
+
+	i = 0;
+	pthread_mutex_destroy(&l->lock);
+	while (i < l->nb_philo)
+		pthread_mutex_destroy(&l->mutex[i++]);
+	free(l->pid);
+	free(l->mutex);
 }
 
 int	main(int ac, char **av)
@@ -37,5 +60,6 @@ int	main(int ac, char **av)
 		return (1);
 	ft_initiate(&l);
 	ft_create_threads(&l);
+	ft_end(&l);
 	return (0);
 }

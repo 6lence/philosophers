@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 11:33:09 by mescobar          #+#    #+#             */
-/*   Updated: 2023/11/12 22:34:55 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/11/13 02:29:40 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,20 @@
 
 typedef struct s_data
 {
-	size_t				a;
+	size_t				philo;
 	size_t				nb_philo;
 	size_t				t_to_die;
 	size_t				t_to_eat;
 	size_t				t_to_sleep;
 	size_t				nb_ph_eat;
+	size_t				time;
+	size_t				time_left;
+	int					not_dead;
+	int					left;
+	int					right;
 	pthread_t			*pid;
-	pthread_mutex_t		*lock;
+	pthread_mutex_t		*mutex;
+	pthread_mutex_t		lock;
 }				t_data;
 
 /* ft_args_utils */
@@ -38,5 +44,8 @@ size_t	ft_atoi(char *str);
 
 /*	ft_main_loop  */
 void	ft_create_threads(t_data *l);
+
+/*	ft_print  */
+void	ft_print(char *str, t_data *l);
 
 #endif
