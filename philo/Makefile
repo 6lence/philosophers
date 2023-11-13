@@ -1,7 +1,9 @@
 SRC_DIR := ./src
 SRC_FILES :=	philo.c \
 				ft_args_utils.c \
-				ft_main_loop.c 
+				ft_main_loop.c \
+				ft_utils.c \
+				ft_print.c
 
 OBJ_DIR := ./obj
 EXECUTABLE := philo

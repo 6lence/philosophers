@@ -6,15 +6,15 @@
 /*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 14:05:45 by mescobar          #+#    #+#             */
-/*   Updated: 2023/11/12 22:47:46 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/11/14 00:41:50 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-size_t	ft_atoi(char *str)
+t_time	ft_atoi(char *str)
 {
-	size_t	res;
+	t_time	res;
 	int		i;
 
 	res = 0;
