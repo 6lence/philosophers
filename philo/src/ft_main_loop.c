@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 18:25:15 by mescobar          #+#    #+#             */
-/*   Updated: 2023/11/14 23:01:04 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/11/14 23:04:16 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,14 @@ int	ft_keep(t_philo *philo)
 		return (pthread_mutex_unlock(&philo->glb->die),
 			pthread_mutex_unlock(&philo->meal), 1);
 	pthread_mutex_lock(&philo->glb->end);
+	pthread_mutex_lock(&philo->glb->end);
+	if (!philo->glb->not_dead && !(philo->glb->nb_meal_max == -1
+			&& philo->meals < philo->glb->nb_meal_max))
+		philo->glb->finished += 1;
+	pthread_mutex_unlock(&philo->glb->end);
+	return (pthread_mutex_unlock(&philo->glb->die),
+		pthread_mutex_unlock(&philo->meal),
+		0);
 }
 
 void	ft_eat(t_philo *philo)

@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 11:33:09 by mescobar          #+#    #+#             */
-/*   Updated: 2023/11/14 23:01:20 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/11/14 23:03:20 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct s_data
 	t_time				t_to_sleep;
 	t_time				nb_meal_max;
 	int					*not_dead;
+	int					finished;
 }						t_data;
 
 typedef struct	s_both
