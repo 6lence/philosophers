@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_args_utils.c                                    :+:      :+:    :+:   */
+/*   ft_arguments.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 14:05:45 by mescobar          #+#    #+#             */
-/*   Updated: 2023/11/14 00:41:50 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/11/14 17:15:44 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_verify_number(char *str)
 	return (0);
 }
 
-int	ft_separate_arguments(int ac, char **av, t_data *l)
+int	ft_separate_arguments(int ac, char **av, t_data l)
 {
 	int	i;
 
@@ -52,11 +52,11 @@ int	ft_separate_arguments(int ac, char **av, t_data *l)
 			return (printf("Arguments with only numbers !\n"));
 		i++;
 	}
-	l->nb_philo = ft_atoi(av[1]);
-	l->t_to_die = ft_atoi(av[2]);
-	l->t_to_eat = ft_atoi(av[3]);
-	l->t_to_sleep = ft_atoi(av[4]);
+	l.nb_philo = ft_atoi(av[1]);
+	l.t_to_die = ft_atoi(av[2]);
+	l.t_to_eat = ft_atoi(av[3]);
+	l.t_to_sleep = ft_atoi(av[4]);
 	if (ac == 6)
-		l->nb_ph_eat = ft_atoi(av[5]);
+		l.nb_ph_eat = ft_atoi(av[5]);
 	return (0);
 }
