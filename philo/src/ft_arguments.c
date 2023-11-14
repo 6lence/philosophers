@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_arguments.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 14:05:45 by mescobar          #+#    #+#             */
-/*   Updated: 2023/11/14 17:15:44 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/11/14 22:57:24 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ int	ft_separate_arguments(int ac, char **av, t_data l)
 	l.t_to_die = ft_atoi(av[2]);
 	l.t_to_eat = ft_atoi(av[3]);
 	l.t_to_sleep = ft_atoi(av[4]);
+	l.nb_meal_max = -1;
 	if (ac == 6)
-		l.nb_ph_eat = ft_atoi(av[5]);
+		l.nb_meal_max = ft_atoi(av[5]);
 	return (0);
 }

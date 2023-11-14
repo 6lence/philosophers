@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 11:33:09 by mescobar          #+#    #+#             */
-/*   Updated: 2023/11/14 17:44:12 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/11/14 23:01:20 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,19 @@
 
 typedef long int	t_time;
 
-typedef struct	s_philo
+# define EAT 1
+# define SLEEP 2
+# define THINK 3
+
+typedef struct s_philo
 {
 	int						pos;
+	int						state;
 	pthread_t				id;
 	pthread_mutex_t			left;
 	pthread_mutex_t			right;
 	pthread_mutex_t			meal;
+	pthread_mutex_t			m_state;
 	t_time					last_meal;
 	t_data					*glb;
 }							t_philo;
@@ -39,6 +45,7 @@ typedef struct s_data
 	pthread_mutex_t		*die;
 	pthread_mutex_t		*nb_meal;
 	pthread_mutex_t		*write;
+	pthread_mutex_t		*end;
 	pthread_t			timer;
 	t_time				nb_philo;
 	t_time				t_to_die;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 16:57:25 by mescobar          #+#    #+#             */
-/*   Updated: 2023/11/14 18:33:30 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/11/14 22:56:13 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ft_initiate(t_both *b)
 {
 	int	i;
 
-	b->philo = ft_calloc(sizeof(t_philo), b->l.nb_philo)
+	b->philo = ft_calloc(sizeof(t_philo), b->l.nb_philo);
 	pthread_mutex_init(b->l.die, NULL);
 	i = 0;
 	while (i < b->l.nb_philo)
@@ -101,10 +101,10 @@ int	main(int ac, char **av)
 	if (ft_separate_arguments(ac, av, &b.l))
 		return (1);
 	ft_initiate(&b);
-	pthread_create(&b.timer_start, NULL, &ft_timer, b);
+	pthread_create(&b.timer_start, NULL, &ft_timer, &b);
 	i = 0;
 	while (i < b.l.nb_philo)
-		pthread_create(&b.philo[i]->id, NULL, &ft_routine, b);
+		pthread_create(&b.philo[i]->id, NULL, &ft_routine, &b->philo[i]);
 	ft_end(&b);
 	return (0);
 }
